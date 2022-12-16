@@ -1,0 +1,3 @@
+First three bytes is image width
+Second three bytes is image height
+Rest are gray scale colors
