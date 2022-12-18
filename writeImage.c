@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "image.h"
 
-#define WIDTH ((long long)5)
-#define HEIGHT ((long long)5)
 
 int strLen(char*word){
 	int ii = 0;
@@ -15,14 +14,6 @@ int strLen(char*word){
 
 int main(int argc, char **argv)
 {
-	char image[HEIGHT * WIDTH] = {
-		255, 255, 255, 255, 255,
-		255,   0, 255,   0, 255,
-		255, 255, 255, 255, 255,
-		255,   0,   0,   0, 255,
-		255, 255, 255, 255, 255
-	};
-
 	char identifier[] = {'I','I','F'};
 	char width[3] = {(char)(WIDTH / (256*256)),(char)(WIDTH/256),(char)WIDTH};
 	char height[3] = {(char)(HEIGHT / (256*256)),(char)(HEIGHT/256),(char)HEIGHT};
@@ -50,13 +41,6 @@ int main(int argc, char **argv)
 	fwrite(width, 1, sizeof(width), fileW);
 	fwrite(height, 1, sizeof(height), fileW);
 	fwrite(image, 1, sizeof(image), fileW);
-	char moi[] = "01234567890123456789";
-
-	printf("1 %ld\n", sizeof("Moi"));
-	printf("2 %ld\n", sizeof(char*));
-	printf("3 %ld\n", sizeof("Moi"));
-	printf("4 %ld\n", sizeof(moi));
-	printf("5 %ld\n", sizeof(image));
 
 	fclose(fileW);
 }
