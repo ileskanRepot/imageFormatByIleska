@@ -22,10 +22,8 @@ int main(int argc, char **argv)
 	char* fileName;
 	
 	if (argv[1] == NULL){
-		fileName = (char*)malloc(strLen("testi")*sizeof(char));
 		fileName = "testi";
 	}else{
-		fileName = (char*)malloc(strLen(argv[1])*sizeof(char));
 		fileName = argv[1];
 	}
 
